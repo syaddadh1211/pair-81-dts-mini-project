@@ -1,10 +1,11 @@
+import { bgcolor } from "@mui/system";
 import React from "react";
 
 const Footer = () => {
   return (
-    <>
-      <h1>Footer</h1>
-    </>
+    <div style={{ bgcolor: "black" }}>
+      <h3 style={{ textAlign: "center" }}>&copy; bahalwans, 2022</h3>
+    </div>
   );
 };
 

@@ -20,6 +20,7 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
 import Image from "../../src/image 3.png";
+import { useNavigate } from "react-router-dom";
 
 const pages = ["Home", "Series", "Movies", "New and Popular", "My List"];
 const settings = ["Logout"];
@@ -76,6 +77,8 @@ const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
+  let navigate = useNavigate();
+
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -83,8 +86,16 @@ const ResponsiveAppBar = () => {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (event, page) => {
     setAnchorElNav(null);
+    switch (page) {
+      case "Home":
+        navigate("/");
+        break;
+      case "Series":
+        navigate("/played");
+        break;
+    }
   };
 
   const handleCloseUserMenu = () => {
@@ -156,15 +167,21 @@ const ResponsiveAppBar = () => {
               {pages.map((page) => (
                 <Button
                   key={page}
-                  onClick={handleCloseNavMenu}
+                  onClick={(event) => handleCloseNavMenu(event, page)}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
                   {page}
                 </Button>
               ))}
             </Box>
+            <Box sx={{ flexGrow: 0, mode: "dark" }}>
+              {/* <Tooltip title="Open settings"> */}
+              <IconButton sx={{ p: 0 }}>
+                <Avatar alt="Login" src="../../public/logo192.png" />
+              </IconButton>
+            </Box>
             <Box>
-              <Search sx={{ mode: "dark" }}>
+              <Search sx={{ mode: "dark", marginRight: "5px" }}>
                 <SearchIconWrapper>
                   <SearchIcon />
                 </SearchIconWrapper>
