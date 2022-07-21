@@ -99,6 +99,9 @@ const ResponsiveAppBar = () => {
       case "Series":
         navigate("/played");
         break;
+      default:
+        navigate("/");
+        break;
     }
   };
 
@@ -218,7 +221,7 @@ const ResponsiveAppBar = () => {
                 onClose={handleCloseUserMenu}
               >
                 {settings.map((setting) => (
-                  <MenuItem key={setting} onClick={handleCloseUserMenu}>                    
+                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
                     <Typography textAlign="center">{setting}</Typography>
                   </MenuItem>
                 ))}

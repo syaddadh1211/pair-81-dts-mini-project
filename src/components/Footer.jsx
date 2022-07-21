@@ -1,4 +1,3 @@
-import { bgcolor } from "@mui/system";
 import React from "react";
 
 const Footer = () => {

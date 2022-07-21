@@ -12,8 +12,6 @@ import {
   auth,
   loginDenganEmailDanPassword,
   registerDenganEmailDanPassword,
-  resetPassword,
-  logout,
 } from "../authentication/firebase";
 
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -29,7 +27,7 @@ const LoginOrRegisterForm = ({ loginOrRegister }) => {
   // user: auth.user jika ada yang login, null jika tidak ada
   // loading: boolean(indikator) nungguin login (bisa gunakan progress bar)
   // error
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
 
   const [credential, setCredential] = useState({
     email: "",

@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Typography } from "@mui/material";
 import tmdb from "../apis/tmdb";
-import CardMovie from "../components/CardMovie";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,7 +8,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 // import required modules
-import { EffectFade, Pagination, Navigation } from "swiper";
+import { Navigation } from "swiper";
 import { useNavigate } from "react-router-dom";
 
 const ListMoviesLaga = () => {
@@ -59,6 +57,7 @@ const ListMoviesLaga = () => {
                   key={movie.id}
                   src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
                   onClick={(event) => handleMovie(event, movie)}
+                  alt="pilem"
                 ></img>
               </a>
             </SwiperSlide>

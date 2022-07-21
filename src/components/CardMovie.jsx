@@ -9,14 +9,11 @@ import {
   Typography,
 } from "@mui/material";
 
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-// import required modules
-import { Pagination, Navigation } from "swiper";
+
 import { useNavigate } from "react-router-dom";
 
 const urlDepan = "https://image.tmdb.org/t/p/w200";

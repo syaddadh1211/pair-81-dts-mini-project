@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { ListMoviesPopular, getMovie } from "../container/ListMoviesPopular";
+import { ListMoviesPopular } from "../container/ListMoviesPopular";
 import ListMoviesLaga from "../container/ListMoviesLaga";
 import ListMoviesSingle from "../container/ListMoviesSingle";
 import Footer from "../components/Footer";
@@ -8,7 +8,7 @@ import "./style.css";
 
 const MovieSelected = () => {
   let params = useParams();
-  const [movie, setMovie] = useState({});
+  // const [movie, setMovie] = useState({});
 
   //   useEffect(() => {
   //     const selected = getMovie(params.movieId);
