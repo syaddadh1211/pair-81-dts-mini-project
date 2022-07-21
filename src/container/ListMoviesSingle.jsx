@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Typography } from "@mui/material";
+
 import tmdb from "../apis/tmdb";
 import CardMovie from "../components/CardMovie";
 
