@@ -1,16 +1,29 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { ListMoviesPopular, getMovie } from "../container/ListMoviesPopular";
+import ListMoviesLaga from "../container/ListMoviesLaga";
+import ListMoviesSingle from "../container/ListMoviesSingle";
+import Footer from "../components/Footer";
+import "./style.css";
 
 const MovieSelected = () => {
   let params = useParams();
+  const [movie, setMovie] = useState({});
 
-  useEffect(() => {
-    const selected = () => {};
-  }, []);
+  //   useEffect(() => {
+  //     const selected = getMovie(params.movieId);
+  //     setMovie(selected);
+  //   }, []);
   return (
-    <>
-      <h1>MovieId terseleksi adalah : {params.movieId} </h1>
-    </>
+    <div className="bg">
+      <ListMoviesSingle />
+      <h1 className="id">MovieId terseleksi adalah : {params.movieId} </h1>
+      <h2 className="id">Popular</h2>
+      <ListMoviesPopular />
+      <h2 className="id">Top Rated</h2>
+      <ListMoviesLaga />
+      <Footer />
+    </div>
   );
 };
 

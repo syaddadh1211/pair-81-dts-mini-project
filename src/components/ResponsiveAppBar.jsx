@@ -21,6 +21,9 @@ import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
 import Image from "../../src/image 3.png";
 import { useNavigate } from "react-router-dom";
+import { logout } from "../authentication/firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../authentication/firebase";
 
 const pages = ["Home", "Series", "Movies", "New and Popular", "My List"];
 const settings = ["Logout"];
@@ -78,6 +81,7 @@ const ResponsiveAppBar = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   let navigate = useNavigate();
+  const [user] = useAuthState(auth);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -98,8 +102,10 @@ const ResponsiveAppBar = () => {
     }
   };
 
-  const handleCloseUserMenu = () => {
+  const handleCloseUserMenu = async () => {
     setAnchorElUser(null);
+    await logout();
+    navigate("/login");
   };
 
   return (
@@ -176,9 +182,7 @@ const ResponsiveAppBar = () => {
             </Box>
             <Box sx={{ flexGrow: 0, mode: "dark" }}>
               {/* <Tooltip title="Open settings"> */}
-              <IconButton sx={{ p: 0 }}>
-                <Avatar alt="Login" src="../../public/logo192.png" />
-              </IconButton>
+              <Typography>{user?.email}</Typography>
             </Box>
             <Box>
               <Search sx={{ mode: "dark", marginRight: "5px" }}>

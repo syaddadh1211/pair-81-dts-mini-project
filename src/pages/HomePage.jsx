@@ -1,17 +1,18 @@
 import React from "react";
+import "./style.css";
 
 import ListMoviesSingle from "../container/ListMoviesSingle";
-import ListMoviesPopular from "../container/ListMoviesPopular";
+import { ListMoviesPopular } from "../container/ListMoviesPopular";
 import ListMoviesLaga from "../container/ListMoviesLaga";
 import Footer from "../components/Footer";
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="bg">
       <ListMoviesSingle />
-      <h2>Popular</h2>
+      <h2 className="id">Popular</h2>
       <ListMoviesPopular />
-      <h2>Laga dan Petualangan</h2>
+      <h2 className="id">Top Rated</h2>
       <ListMoviesLaga />
       <Footer />
     </div>

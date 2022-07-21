@@ -3,8 +3,10 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div style={{ bgcolor: "black" }}>
-      <h3 style={{ textAlign: "center" }}>&copy; bahalwans, 2022</h3>
+    <div>
+      <h3 style={{ textAlign: "center", color: "white" }}>
+        &copy; bahalwans, 2022
+      </h3>
     </div>
   );
 };

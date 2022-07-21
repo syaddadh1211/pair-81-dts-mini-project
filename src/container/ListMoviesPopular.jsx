@@ -13,6 +13,8 @@ import "swiper/css/navigation";
 import { EffectFade, Pagination, Navigation } from "swiper";
 import { useNavigate } from "react-router-dom";
 
+let film;
+
 const ListMoviesPopular = () => {
   const [movies, setMovies] = useState([]);
   let navigate = useNavigate();
@@ -22,6 +24,7 @@ const ListMoviesPopular = () => {
       try {
         const response = await tmdb.get("/movie/popular");
         setMovies(response.data.results);
+        film = response.data.results;
       } catch (err) {
         console.log(err);
       }
@@ -38,7 +41,7 @@ const ListMoviesPopular = () => {
   return (
     <div style={{ bgcolor: "black" }}>
       <Swiper
-        slidesPerView={3}
+        slidesPerView={6}
         spaceBetween={0}
         slidesPerGroup={4}
         loop={true}
@@ -56,6 +59,7 @@ const ListMoviesPopular = () => {
             <SwiperSlide>
               <a href="#">
                 <img
+                  key={movie.id}
                   src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
                   onClick={(event) => handleMovie(event, movie)}
                 ></img>
@@ -69,4 +73,8 @@ const ListMoviesPopular = () => {
   );
 };
 
-export default ListMoviesPopular;
+const getMovie = (movieId) => {
+  console.log(film.find((movie) => movie.id === movieId));
+};
+
+export { ListMoviesPopular, getMovie };

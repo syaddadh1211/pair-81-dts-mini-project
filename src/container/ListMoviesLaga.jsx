@@ -20,7 +20,7 @@ const ListMoviesLaga = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await tmdb.get("/movie/popular");
+        const response = await tmdb.get("/movie/top_rated");
         setMovies(response.data.results);
       } catch (err) {
         console.log(err);
@@ -38,7 +38,7 @@ const ListMoviesLaga = () => {
   return (
     <>
       <Swiper
-        slidesPerView={3}
+        slidesPerView={6}
         spaceBetween={0}
         slidesPerGroup={4}
         loop={true}
@@ -56,6 +56,7 @@ const ListMoviesLaga = () => {
             <SwiperSlide>
               <a href="#">
                 <img
+                  key={movie.id}
                   src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
                   onClick={(event) => handleMovie(event, movie)}
                 ></img>

@@ -33,7 +33,7 @@ const CardMovie = ({ propsMovie }) => {
       <Card
         className="boxy"
         sx={{
-          width: 1500,
+          width: 1400,
           height: 440,
         }}
         variant="outlined"
